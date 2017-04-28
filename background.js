@@ -71,7 +71,9 @@ function updateActiveTab(tabs) {
             item.URLs = {};
             item.URLs.list = [];
         }
-        if (item.URLs.list.filter(function(e) e == currentTab.url).length == 0) {
+        if (item.URLs.list.filter(function(e){
+           return e == currentTab.url
+        }).length == 0) {
             inStash = false;
             updateIcon();
         } else {
@@ -90,7 +92,6 @@ function updateActiveTab(tabs) {
 
 
 
-// TODO listen for bookmarks.onCreated and bookmarks.onRemoved once Bug 1221764 lands
 
 
 browser.pageAction.onClicked.addListener(function() {
@@ -108,8 +109,11 @@ function storeURL(item) {
         item.URLs.list = [];
     }
 
-    if (item.URLs.list.filter(function(e) e == currentTab.url).length == 0) {
+    if (item.URLs.list.filter(function(e){ return e == currentTab.url}).length == 0) {
         item.URLs.list.push(currentTab.url);
+    }
+    else{
+        item.URLs.list = item.URLs.list.filter(function(e){ return e != currentTab.url});
     }
 
 
