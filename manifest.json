@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Fido Fetch!",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Revisit those forgotten videos!",
   "homepage_url": "https://github.com/dhruvchand/FidoFetch",
   "icons": {

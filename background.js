@@ -28,7 +28,7 @@ function getRandom() {
 
     let gettingItem = browser.storage.local.get("URLs");
     gettingItem.then(loadRand, onError);
-
+     updateIcon();
 
 }
 
@@ -97,7 +97,7 @@ function updateActiveTab(tabs) {
 browser.pageAction.onClicked.addListener(function() {
     let gettingItem = browser.storage.local.get("URLs");
     gettingItem.then(storeURL, onError);
-
+     updateActiveTab();
 });
 
 
@@ -118,7 +118,7 @@ function storeURL(item) {
 
 
     browser.storage.local.set(item);
-
+    
 
 
 }
